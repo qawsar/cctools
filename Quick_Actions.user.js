@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quick Actions
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
@@ -14,6 +14,7 @@
 
 (function() {
     'use strict';
+    var $ = window.jQuery;
     $(document).ready(function() {
         var tds = document.querySelectorAll('td.small8pt');
         var b = document.querySelectorAll('b');
