@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quick Actions
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
@@ -212,9 +212,9 @@
                     document.getElementsByName('security_block')[0].setAttribute("style", "background-color: white;");
                     document.getElementsByName('fraud_flag')[0].selectedIndex = 0;
                     document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: white;");
-                    document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+                    document.getElementsByName('allow_add_cc')[0].selectedIndex = 0;
                     document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: white;");
-                    document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+                    document.getElementsByName('block_paypal')[0].selectedIndex = 0;
                     document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: white;");
                     document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 0;
                     document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: white;");
