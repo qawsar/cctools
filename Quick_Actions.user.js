@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quick Actions
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
@@ -157,36 +157,82 @@
     );
 
     function pBlock (zEvent) {
-    document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
-    document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('block_paypal')[0].selectedIndex = 1;
-    document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
-}
+        if (document.getElementsByName('allow_add_cc')[0].selectedIndex == 1){
+            if (document.getElementsByName('block_paypal')[0].selectedIndex == 1){
+                document.getElementsByName('allow_add_cc')[0].selectedIndex = 0
+                document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: white;");
+                document.getElementsByName('block_paypal')[0].selectedIndex = 0
+                document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: white;");
+            } else {
+            document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+            document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+            document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
+            }
+        } else {
+            document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+            document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+            document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
+        }
+    }
 
     function fBlock (zEvent) {
-    document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
-    document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 1;
-    document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('cc_status')[0].selectedIndex = 0;
-    document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: white;");
-    document.getElementsByName('security_block')[0].selectedIndex = 0;
-    document.getElementsByName('security_block')[0].setAttribute("style", "background-color: white;");
-}
+        if ( document.getElementsByName('fraud_flag')[0].selectedIndex == 1) {
+            if (document.getElementsByName('tmp_fraud_block')[0].selectedIndex == 1){
+                document.getElementsByName('fraud_flag')[0].selectedIndex = 0;
+                document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: white;");
+                document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 0;
+                document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: white;");
+            } else {
+                document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
+                document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
+                document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 1;
+                document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: #FDBE1E;");
+            }
+        } else {
+            document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
+            document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 1;
+            document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: #FDBE1E;");
+        }
+        document.getElementsByName('cc_status')[0].selectedIndex = 0;
+        document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: white;");
+        document.getElementsByName('security_block')[0].selectedIndex = 0;
+        document.getElementsByName('security_block')[0].setAttribute("style", "background-color: white;");
+    }
 
     function sBlock (zEvent) {
-    document.getElementsByName('cc_status')[0].selectedIndex = 1;
-    document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('security_block')[0].selectedIndex = 1;
-    document.getElementsByName('security_block')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
-    document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
-    document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('block_paypal')[0].selectedIndex = 1;
-    document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
-    document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 0;
-    document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: white;");
-}
-
+        if (document.getElementsByName('cc_status')[0].selectedIndex == 1){
+            if (document.getElementsByName('security_block')[0].selectedIndex == 1){
+                if (document.getElementsByName('fraud_flag')[0].selectedIndex == 1){
+                    document.getElementsByName('cc_status')[0].selectedIndex = 0;
+                    document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: white;");
+                    document.getElementsByName('security_block')[0].selectedIndex = 0;
+                    document.getElementsByName('security_block')[0].setAttribute("style", "background-color: white;");
+                    document.getElementsByName('fraud_flag')[0].selectedIndex = 0;
+                    document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: white;");
+                    document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+                    document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: white;");
+                    document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+                    document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: white;");
+                    document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 0;
+                    document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: white;");
+                }
+            }
+        } else {
+            document.getElementsByName('cc_status')[0].selectedIndex = 1;
+            document.getElementsByName('cc_status')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('security_block')[0].selectedIndex = 1;
+            document.getElementsByName('security_block')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('fraud_flag')[0].selectedIndex = 1;
+            document.getElementsByName('fraud_flag')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('allow_add_cc')[0].selectedIndex = 1;
+            document.getElementsByName('allow_add_cc')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('block_paypal')[0].selectedIndex = 1;
+            document.getElementsByName('block_paypal')[0].setAttribute("style", "background-color: #FDBE1E;");
+            document.getElementsByName('tmp_fraud_block')[0].selectedIndex = 0;
+            document.getElementsByName('tmp_fraud_block')[0].setAttribute("style", "background-color: white;");
+        }
+    }
 })();
