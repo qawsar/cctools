@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quick Actions
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
@@ -15,6 +15,7 @@
     'use strict';
     $(document).ready(function() {
         var tds = document.querySelectorAll('td.small8pt');
+        var b = document.querySelectorAll('b');
         var tda = ""; //IP Value
         var ip = -1;
         var ip2 = -1;
@@ -24,6 +25,11 @@
         var ip6 = -1;
         var ipcheck = new RegExp("^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$");
 
+        for (var z = 0; z < b.length; z++) {
+            if (b[z].innerHTML == "Contact information"){
+                b[z].innerHTML = "Contact information <input type=\"submit\" name=\"apply\" value=\"Apply\" class=\"green\" style=\"float: right;\">";
+            }
+        }
         for (var i = 0; i < tds.length; i++) {
             if (tds[i].textContent == "Subscription IP"){
                 ip = i+1
