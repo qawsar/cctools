@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Quick Actions
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
@@ -27,7 +27,7 @@
 
         for (var z = 0; z < b.length; z++) {
             if (b[z].innerHTML == "Contact information"){
-                b[z].innerHTML = "Contact information <input type=\"submit\" name=\"apply\" value=\"Apply\" class=\"green\" style=\"float: right;\">";
+                b[z].innerHTML = "Contact information <input type=\"submit\" name=\"apply\" value=\"Apply\" class=\"green\" style=\"float: right;\"><div style=\"float: right;\">&nbsp;&nbsp;</div><input type=\"submit\" name=\"submit\" value=\"Save\" class=\"green\" style=\"float: right;\">";
             }
         }
         for (var i = 0; i < tds.length; i++) {
