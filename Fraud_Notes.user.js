@@ -19,7 +19,7 @@
          for (var i = 0; i < tds.length; i++) {
              if (i == 91){
                  var notes = document.createElement('div');
-                 notes.innerHTML = "<textarea rows=\"11\" cols=\"130\"></textarea>"
+                 notes.innerHTML = "<textarea rows=\"10\" cols=\"130\"></textarea>"
                  tds[i].append(notes);
              }
          }
