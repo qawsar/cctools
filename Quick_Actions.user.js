@@ -5,8 +5,8 @@
 // @description  Add's various quick actions to the Admin portal
 // @author       Qawsar
 // @match        https://admin.callcentric.com/client_view.php*
-// @updateURL    https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
-// @downloadURL  https://github.com/FatePGN/toolbox/raw/master/IP_Check.user.js
+// @updateURL    https://github.com/qawsar/cctools/raw/master/Quick_Actions.user.js
+// @downloadURL  https://github.com/qawsar/cctools/raw/master/Quick_Actions.user.js
 // @grant
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
